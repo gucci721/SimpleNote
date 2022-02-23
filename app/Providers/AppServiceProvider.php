@@ -39,5 +39,9 @@ class AppServiceProvider extends ServiceProvider
 
             $view->with('user', $user)->with('memos', $memos)->with('tags', $tags);
         });
+        
+        if(\App::environment(['production'])){
+            \URL::forseScheme('https');
+        }
     }
 }
