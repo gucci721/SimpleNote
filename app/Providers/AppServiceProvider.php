@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facedes\Schema;
 use App\Memo;
 use App\Tag;
 
@@ -24,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
+    {        
         //全てのメソッドが生まれる前に先に呼ばれるメソッド
         view()->composer('*', function($view){
             //get the current user
@@ -39,6 +40,6 @@ class AppServiceProvider extends ServiceProvider
 
             $view->with('user', $user)->with('memos', $memos)->with('tags', $tags);
         });
-        
+
     }
 }
