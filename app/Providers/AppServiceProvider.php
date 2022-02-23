@@ -25,10 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if(\App::environment(['production']) || \App::environment(['develop'])){
-            \URL::forseScheme('https');
-        }
-
         //全てのメソッドが生まれる前に先に呼ばれるメソッド
         view()->composer('*', function($view){
             //get the current user
@@ -43,5 +39,9 @@ class AppServiceProvider extends ServiceProvider
 
             $view->with('user', $user)->with('memos', $memos)->with('tags', $tags);
         });
+
+        if(\App::environment(['production']) || \App::environment(['develop'])){
+            \URL::forseScheme('https');
+        }
     }
 }
