@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'SimpleNote') }}</title>
+    <title>SimpleNoteクローン</title>
 
     <!-- Scripts -->
     <script src="{{ '/js/app.js' }}" defer></script>
